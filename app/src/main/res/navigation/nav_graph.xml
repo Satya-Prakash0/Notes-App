@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/notesFragments">
+
+    <fragment
+        android:id="@+id/notesFragments"
+        android:name="com.aytas.notesapp.fragments.NotesFragments"
+        android:label="fragment_notes_fragments"
+        tools:layout="@layout/fragment_notes_fragments" >
+        <action
+            android:id="@+id/action_notesFragments_to_saveUpdateFragments"
+            app:destination="@id/saveUpdateFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveUpdateFragments"
+        android:name="com.aytas.notesapp.fragments.SaveUpdateFragments"
+        android:label="fragment_save_update_fragments"
+        tools:layout="@layout/fragment_save_update_fragments" >
+        <action
+            android:id="@+id/action_saveUpdateFragments_to_notesFragments"
+            app:destination="@id/notesFragments" />
+
+        <argument android:name="Note"
+            android:defaultValue="@null"
+            app:argType="com.aytas.notesapp.models.Note"
+            app:nullable="true"/>
+
+    </fragment>
+</navigation>
